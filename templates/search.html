@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Презентации онлайн</title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.min.css">
+</head>
+
+<body>
+<nav class="navbar navbar-light navbar-expand-lg navigation-clean-button">
+    <div class="container"><a class="navbar-brand" href="/">Онлайн презентации</a>
+        <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span
+                class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navcol-1">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link active" href="/search">Найти презентацию</a></li>
+                <li class="nav-item"><a class="nav-link" href="/showpresentations">Все презентации</a></li>
+                <li class="nav-item"><a class="nav-link" href="/create-presentation">Создать презентацию</a></li>
+            </ul>
+            <span class="navbar-text actions"> <a class="login" href="/auth">Войти</a><a
+                    class="btn btn-light action-button" role="button" href="/signup">Регистрация</a></span>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div>
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="searchPresentationByAuthorName">
+            <label class="form-check-label" for="searchPresentationByAuthorName">Поиск презентации по имени
+                автора</label>
+        </div>
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="searchPresentationByKeyWord">
+            <label class="form-check-label" for="searchPresentationByKeyWord">Поиск презентации по ключевым
+                словам</label>
+        </div>
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="searchPresentationByPresentationId">
+            <label class="form-check-label" for="searchPresentationByPresentationId">Поиск презентации по имени
+                презентации</label>
+        </div>
+
+        <label for="exampleDataList" class="form-label">Результат поиска</label>
+        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+        <datalist id="datalistOptions">
+            <!--            <option value="San Francisco">-->
+            <!--            <option value="New York">-->
+            <!--            <option value="Seattle">-->
+            <!--            <option value="Los Angeles">-->
+            <!--            <option value="Chicago">-->
+        </datalist>
+    </div>
+    <script src="/assets/javascript/getJson.js"></script>
+    <script src="/assets/javascript/search.js"></script>
+</div>
+</body>
+</html>

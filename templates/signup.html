@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.min.css">
+    <style>
+        .captcha {
+            text-align: center;
+            position: absolute;
+            margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right: 0;
+            background-color: white;
+            border: 3px black solid;
+            width: 600px;
+            height: 300px;
+            top: calc(100vh / 10);
+            border-radius: 10px;
+            display: none;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+<div class="wrapper">
+    <nav class="navbar navbar-light navbar-expand-lg navigation-clean-button">
+        <div class="container"><a class="navbar-brand" href="/">Онлайн презентации</a>
+            <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span
+                    class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="/search">Найти презентацию</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/showpresentations">Все презентации</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/create-presentation">Создать презентацию</a></li>
+                </ul>
+                <span class="navbar-text actions"> <a class="login" href="/auth">Войти</a><a
+                        class="btn btn-light action-button" role="button" href="/signup">Регистрация</a></span>
+            </div>
+        </div>
+    </nav>
+    <section class="login-clean">
+        <div class="error"></div>
+        <form method="post">
+            <h2 class="visually-hidden">Login Form</h2>
+            <div class="illustration"><i class="icon ion-ios-navigate"></i></div>
+            <div class="mb-3"><input id="name" class="form-control" type="text" name="name" placeholder="Имя"></div>
+            <div class="mb-3"><input id="description" class="form-control" type="text" name="description"
+                                     placeholder="Описание"></div>
+            <div class="mb-3"><input id="email" class="form-control" type="email" name="email" placeholder="Email"></div>
+            <div class="mb-3"><input id="login" class="form-control" type="email" name="login" placeholder="Логин"></div>
+            <div class="mb-3"><input id="password" class="form-control" type="password" name="password"
+                                     placeholder="Пароль"></div>
+            <div class="mb-3"><input class="btn btn-primary d-block w-100" onclick="signup()" type="button"
+                                     value="Регистрация"></div>
+        </form>
+    </section>
+</div>
+
+<div class="captcha">
+    <h1>Введите капчу</h1>
+    <canvas width="594" height="208" id="canvas"></canvas>
+    <input id="captcha_input" type="text">
+</div>
+<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="/assets/javascript/getJson.js"></script>
+<script src="/assets/javascript/signup.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+name: PHP CD
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Building Docker Image
+        run: |
+          cd /root/actions-runner/_work/agu-practical/agu-practical
+          docker build . -t glad2os/agu-practical
+          docker push glad2os/agu-practical:latest
+
+      - name: Running Docker Image
+        run: docker-compose up -d

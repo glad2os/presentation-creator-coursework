@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg navigation-clean">
+        <div class="container"><a class="navbar-brand" href="/">Online-Presentations</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <a class="nav-link" href="/create-presentation">Создать презентацию</a>
+            <a class="nav-link" href="/showpresentations">Все презентации</a>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="/exit">Выйти</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">{{LOGIN}}</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Информация о пользователе</h1>
+                <p>Ваш id:&nbsp; {{ID}}</p>
+                <p>Ваш email: {{EMAIL}}&nbsp;</p>
+                <p>Аккаунт: {{VALIDATED}}&nbsp;</p>
+                <p>Ваше имя: {{NAME}}</p>
+                <p>Ваш логин: {{USERNAME}}</p>
+                <p>Ваше описание: {{DESCRIPTION}}<br></p>
+            </div>
+            <div class="col-md-6">
+                <h1>Ваши презентации</h1>
+                <p>{{PRESENTATIONS}}</p>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/javascript/getJson.js"></script>
+    <script src="/assets/javascript/deletepresentation.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

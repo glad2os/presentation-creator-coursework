@@ -1,0 +1,55 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mariadb
+  labels:
+    app: online-presentations
+spec:
+  ports:
+    - port: 3306
+  selector: # connection between services
+    app: online-presentations
+    tier: mariadb
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mariadb
+  labels:
+    app: online-presentations
+spec:
+  selector:
+    matchLabels:
+      app: online-presentations
+      tier: mariadb
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: online-presentations
+        tier: mariadb
+    spec:
+      containers:
+      - image: mariadb:10.3.16
+        name: mariadb
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: db-password
+              key: password
+        ports:
+        - containerPort: 3306
+          name: mariadb
+        volumeMounts:
+        - name: mariadb-volume
+          mountPath: /var/lib/mariadb
+        resources:
+          limits:
+            cpu: 100m
+            memory: 256Mi
+      volumes:
+      - name: mariadb-volume
+        persistentVolumeClaim:
+          claimName: mariadb-volume

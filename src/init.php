@@ -3,9 +3,9 @@
  * Задание базы данных
  * для первой инициалиации
  */
-$servername = getenv("HOST") ?: "localhost";
+$servername = getenv("DB_HOST") ?: "localhost";
 $username = "root";
-$password = "";
+$password = getenv("DB_PASSWORD");
 
 $conn = mysqli_connect($servername, $username, $password);
 

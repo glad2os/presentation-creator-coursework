@@ -1,0 +1,65 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: online-presentations
+  labels:
+    app: online-presentations
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: online-presentations
+    tier: frontend
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: online-presentations
+  labels:
+    app: online-presentations
+spec:
+  selector:
+    matchLabels:
+      app: online-presentations
+      tier: frontend
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: online-presentations
+        tier: frontend
+    spec:
+      containers:
+      - image: glad2os/agu-practical:latest
+        name: online-presentations
+        env:
+        - name: SMTP_USERNAME
+          value: "presentations@false.team"
+        - name: SMTP_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: smtp-password
+              key: password
+        - name: DB_HOST
+          value: mariadb
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: db-password
+              key: password
+        - name: DB_USERNAME
+          value: root
+        resources:
+          limits:
+            cpu: 100m
+            memory: 400Mi
+        ports:
+        - containerPort: 80
+          name: presentations
+      volumes:
+      - name: online-presentations-volume
+        persistentVolumeClaim:
+          claimName: online-presentations-volume 
